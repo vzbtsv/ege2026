@@ -21,17 +21,21 @@ for x in data:
 
 def p1(r):
     k = 0
+    flag = False
     if len(r) == 2 and r[1] - r[0] <= 2:
         return 0
 
     for i in range(len(r) - 1):
+        if flag:
+            continue
         x1 = r[i]
         x2 = r[i + 1]
 
         if x2 - x1 > 2:
             k += 1
             if x2 - x1 <= 4:
-                k -= 1
+                # k -= 1
+                flag = True
 
     return k + 1
 
