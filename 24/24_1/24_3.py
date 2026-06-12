@@ -22,15 +22,14 @@ f = open("24_26491 (1).txt").read()
 
 maxx = 0
 for i in range(len(f)):
-    for j in range(i + 1, len(f)):
-        st = f[i:j]
-        if ("**" in st) or ("++" in st):
+    for j in range(i + maxx, len(f)):
+        st = f[i:j+1]
+        if ("**" in st) or ("++" in st) or ("*+" in st) or ("*+" in st):
             break
 
         try:
-            if eval(st) % 2 == 0 or int(st) % 2 == 0:
+            if eval(st) % 2 == 0:
                 maxx = max(maxx, len(st))
-                print(len(maxx))
 
         except Exception:
             break
