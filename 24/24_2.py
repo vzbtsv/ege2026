@@ -1,5 +1,3 @@
-from pstats import SortKey
-
 f = open("24_1148.txt").readlines()
 f2 = open("24_1148.txt").read()
 
