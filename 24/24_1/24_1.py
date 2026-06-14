@@ -1,16 +1,19 @@
+import re
+
+f = open("24_12476.txt").read()
 
 
-f = open("24_2508.txt").readlines()
-
-f = sorted(f, key=lambda x: x.count("Q"))
-right = f[-1]
-print(f[-1].count("Q"))
-
-alp = "qwertyuiopasdfghjklzxcvbnm".upper()
-
-res = []
-for a in alp:
-    res.append((right.count(a), a))
+f = f.split("RO")
+maxx = "0"
+for i in range(len(f) - 1):
+    for j in range(1, 23):
+        st = "RO".join(f[i:i + j])
+        if "ORO" not in st and "ROR" not in st:
+            if st.count("RO") == 21:
+                maxx = max(maxx, st, key=len)
 
 
-print(min(res))
+
+print(maxx.count("RO"))
+print(len(maxx))
+

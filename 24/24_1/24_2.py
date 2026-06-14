@@ -1,11 +1,17 @@
-import re
+f = open("24_1148.txt").readlines()
+f2 = open("24_1148.txt").read()
 
-f= open("24_18937.txt").read()
+d = sorted(f, key=lambda x: x.count("Q"))
 
-number = r"(?:[1-9][0-9]*|0)"
+d = f[-1]
 
-pat = rf"{number}(?:[+*]{number})*"
 
-res = re.findall(pat, f)
+alp = "qwertyuiopasdfghjklzxcvbnm".upper()
 
-print(len(max(res, key=len)))
+res = []
+for a in alp:
+    res.append((f.count(a), a))
+
+print(f2.count("C"))
+print(min(res))
+

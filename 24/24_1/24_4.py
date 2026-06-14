@@ -1,12 +1,16 @@
-import re
-
-f = open("24_1352.txt").read()
+f = open("24_1255.txt").readlines()
 
 
-pat = r"[XYZ](?:XYZ)*[XYZ]"
+def r1(s):
+    alp = "qwertyuiopasdfghjklzxcvbnm".upper()
+    res = []
 
+    for a in alp:
+        res.append(s.rindex(a) - s.index(a))
 
-res = re.findall(pat, f)
+    return max(res)
 
-
-print(len(max(res, key=len)))
+all_res = []
+for st in f:
+    if st.count("A") < 25:
+        print(r1(st))

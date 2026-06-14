@@ -1,37 +1,34 @@
 import re
 
-f = open("24_26491 (1).txt").read()
-
-# number = r"(?:[1-9][0-9]*)"
+# f = open("24_9753.txt").read()
 #
-# pat = rf"{number}(?:[+*]{number})*"
+# f = f.split("Y")
+# maxx = "Y"
+# for i in range(len(f)):
+#     x = f[i:i + 151]
 #
-# res = re.findall(pat, f)
-# maxx = 0
-# for x in res:
-#     for i in range(len(x)):
-#         for j in range(len(x), i, -1):
-#             st = x[i:j]
-#             try:
-#                 if eval(st) % 2 == 0:
-#                     maxx = max(maxx, len(st))
-#                     break
+#     st = "Y".join(x)
 #
-#             except Exception:
-#                 pass
+#     if len(maxx) < len(st):
+#         maxx = st
+#
+#
+# print(maxx)
+# print(len(maxx))
 
-maxx = 0
-for i in range(len(f)):
-    for j in range(i + maxx, len(f)):
-        st = f[i:j+1]
-        if ("**" in st) or ("++" in st) or ("*+" in st) or ("*+" in st):
-            break
+f = open("24_9753.txt").read()
+pat = r"(?=[TUVWXZ]*(?:Y[TUVWXZ]*){150})"
 
-        try:
-            if eval(st) % 2 == 0:
-                maxx = max(maxx, len(st))
+c = r"[TUVWXZ]"
+# pat= rf"{c}*(?:Y{c}*)\{150}"
 
-        except Exception:
-            break
 
-print(maxx)
+res = re.findall(pat, f)
+
+print(max(res, key=len))
+print(max(res, key=len).count("Y"))
+print(len(max(res, key=len)))
+
+
+# YVYYYYYYUXVWUYYYYVWYXXYYYVYYYTZYYYUYYYXYYYZWVUYYYYUYYYYTYYVYXYXWYYYVYYYYVWYVYYYZXZTYTUXYWUYVWTYYYWVYYYYYYYYYYYYYYYUYZYYYYYVVVZXYYYYYTYYYYWYYYYZYYYWYYYZYYYUYWVYZYXXXWUYYWYTYYUVYYVXYYYZYUVYYTYYZYYYTYTYWYYYYYYYYYYVYYYWZYYYYYZYYXZYYWYYWYYZYY
+# YTXTYYWYWYYUXXXYUYYTYTXYYWVYWYYYUVYTWYYUYTYYYZYYYYYYZTYYYYYVYYYWXZWUYYYYUYVYYYVYYYYYYYYYYYTXYTYYUZWVTYYYYYYWXYWYYYVTUYYYYYTYWYYWYYYWYVYYWYZYYYYWZYWYYXXXYWYYTYYXYUYYWYYYYYYVYYYUUTWYYYZTUYYYWYZYYTYYYXYZYYWYYYZYTYYUYYUTYZYYVYYYYTVYWYYYYYYYYXVYYWYT
